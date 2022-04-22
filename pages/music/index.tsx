@@ -3,21 +3,23 @@ import {
   GetServerSideProps,
   GetServerSidePropsResult,
 } from "next";
+import { Container } from "../../styles/pages/music/Music.styles";
 
 const Musics: React.FC = () => {
   return (
-    <div>
-      <h1>This is Main Music Page</h1>
-    </div>
+    <Container>
+      <aside className="sidebar"></aside>
+      <main className="main"></main>
+      <aside className="player"></aside>
+    </Container>
   );
 };
 
-export const getServerSideProps: GetServerSideProps = (
+export const getServerSideProps: GetServerSideProps = async (
   ctx: GetServerSidePropsContext
 ): Promise<GetServerSidePropsResult<any>> => {
   return {
-    props: {},
-    notfound: true,
+    props: { title: "hello" },
   };
 };
 
