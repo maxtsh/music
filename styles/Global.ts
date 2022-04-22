@@ -2,6 +2,17 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 
+:root{
+  --white: #ffffff;
+  --gray-1: #F6F8F9;
+  --gray-2:  #9BA6B0;
+  --gray-3: rgb(231,235,239);
+  --pm-text: #364045;
+  --text-1: #7F8B9C;
+  --purple: #666CFF;
+  --text-light-1: rgb(173,181,194);
+}
+
 *{
   box-sizing: border-box ;
 }
@@ -13,7 +24,7 @@ html,body{
   padding:0;
 }
 
-h1, h2, h3, h4, h5, h6, p, span{
+h1, h2, h3, h4, h5, h6, p, span, ol, ul{
   margin: 0;
 }
 `;
