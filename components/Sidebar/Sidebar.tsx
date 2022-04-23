@@ -1,15 +1,16 @@
-import Image from "next/image";
 import { Container } from "./Sidebar.styles";
 import { HiHome } from "react-icons/hi";
 import { IoMdAlbums } from "react-icons/io";
 import { FaUserAlt, FaCompass, FaHeart, FaMusic } from "react-icons/fa";
 import { MdWatchLater, MdHeadphones } from "react-icons/md";
+import { GiCrownedSkull } from "react-icons/gi";
 
 const Sidebar: React.FC = () => {
   return (
     <Container>
       <div className="logo">
-        <Image height="40px" width="150px" src="/logo.png" alt="MaxTsh-Logo" />
+        <GiCrownedSkull className="logo-icon" />
+        <h2 className="logo-title">MaxTsh Music</h2>
       </div>
       <div className="menu">
         <p className="menu-title">Menu</p>

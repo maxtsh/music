@@ -4,7 +4,7 @@ import { Container } from "./Main.styles";
 import Switch from "../Switch";
 import Slider from "../Slider";
 import { FaCrown, FaPlay, FaHeart, FaRegHeart } from "react-icons/fa";
-import { BsStars, BsArrowRight } from "react-icons/bs";
+import { BsStars, BsArrowRight, BsThreeDotsVertical } from "react-icons/bs";
 
 const Main: React.FC = () => {
   return (
@@ -61,8 +61,8 @@ const Main: React.FC = () => {
             width="150px"
             alt="trend-1"
           />
-          <h5 className="trends-trend-title">Megamix Music</h5>
-          <p className="trends-trend-cat">EDM</p>
+          <h5 className="trends-trend-title">Cowboy Horse</h5>
+          <p className="trends-trend-cat">Country</p>
         </div>
         <div className="trends-trend">
           <Image
@@ -72,8 +72,8 @@ const Main: React.FC = () => {
             width="150px"
             alt="trend-1"
           />
-          <h5 className="trends-trend-title">Megamix Music</h5>
-          <p className="trends-trend-cat">EDM</p>
+          <h5 className="trends-trend-title">Lets Rock Music</h5>
+          <p className="trends-trend-cat">Rock</p>
         </div>
         <div className="trends-trend">
           <Image
@@ -83,8 +83,8 @@ const Main: React.FC = () => {
             width="150px"
             alt="trend-1"
           />
-          <h5 className="trends-trend-title">Megamix Music</h5>
-          <p className="trends-trend-cat">EDM</p>
+          <h5 className="trends-trend-title">Old Is A Gold</h5>
+          <p className="trends-trend-cat">Jazz</p>
         </div>
       </div>
       <div className="trendlist">
@@ -130,6 +130,9 @@ const Main: React.FC = () => {
                 <td className="trendlist-wrapper-table-body-row-td">
                   <FaRegHeart />
                 </td>
+                <td className="trendlist-wrapper-table-body-row-td">
+                  <BsThreeDotsVertical color="var(--gray-2)" />
+                </td>
               </tr>
               <tr className="trendlist-wrapper-table-body-row active">
                 <td className="trendlist-wrapper-table-body-row-td">
@@ -155,6 +158,9 @@ const Main: React.FC = () => {
                 <td className="trendlist-wrapper-table-body-row-td">
                   <FaHeart color="var(--pink)" />
                 </td>
+                <td className="trendlist-wrapper-table-body-row-td">
+                  <BsThreeDotsVertical color="var(--gray-2)" />
+                </td>
               </tr>
               <tr className="trendlist-wrapper-table-body-row">
                 <td className="trendlist-wrapper-table-body-row-td">#3</td>
@@ -176,6 +182,9 @@ const Main: React.FC = () => {
                 <td className="trendlist-wrapper-table-body-row-td">03:56</td>
                 <td className="trendlist-wrapper-table-body-row-td">
                   <FaRegHeart />
+                </td>
+                <td className="trendlist-wrapper-table-body-row-td">
+                  <BsThreeDotsVertical color="var(--gray-2)" />
                 </td>
               </tr>
             </tbody>

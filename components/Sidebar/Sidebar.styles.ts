@@ -15,8 +15,22 @@ export const Container = styled.div`
   background-color: var(--white);
 
   .logo {
-    text-align: center;
+    display: flex;
+    align-items: center;
     flex: 10%;
+
+    &-icon {
+      font-size: 50px;
+      color: var(--purple);
+      cursor: pointer;
+    }
+
+    &-title {
+      font-size: 120%;
+      font-weight: 900;
+      color: var(--purple);
+      cursor: pointer;
+    }
   }
 
   .menu {
