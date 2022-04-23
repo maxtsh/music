@@ -9,8 +9,9 @@ const GlobalStyles = createGlobalStyle`
   --gray-3: rgb(231,235,239);
   --pm-text: #364045;
   --text-1: #7F8B9C;
-  --purple: #666CFF;
+  --purple: #6969FF;
   --text-light-1: rgb(173,181,194);
+  --pink: #F36CC6;
 }
 
 *{
