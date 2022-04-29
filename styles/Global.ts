@@ -10,8 +10,12 @@ const GlobalStyles = createGlobalStyle`
   --pm-text: #364045;
   --text-1: #7F8B9C;
   --purple: #6969FF;
+  --purple-2: #9540ff;
+  --blue-1:#3b92ff;
   --text-light-1: rgb(173,181,194);
   --pink: #F36CC6;
+  --bg-gradient-1: linear-gradient(270deg, var(--blue-1), var(--purple-2));
+  --bg-size-1: 400% 400%;
 }
 
 *{
