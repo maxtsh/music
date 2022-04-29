@@ -15,6 +15,8 @@ const Audio: React.FC = () => {
     isPlaying,
     handleChangeSlider,
     handlePlayPause,
+    handleForward,
+    handleBackward,
   } = AudioManager();
 
   return (
@@ -50,8 +52,8 @@ const Audio: React.FC = () => {
         <button className="player-body-tools-shuffle">
           <BsShuffle className="player-body-tools-shuffle-icon" />
         </button>
-        <button className="player-body-tools-next30">
-          <FaStepForward className="player-body-tools-next30-icon" />
+        <button onClick={handleBackward} className="player-body-tools-next30">
+          <FaStepBackward className="player-body-tools-prev30-icon" />
         </button>
         <button onClick={handlePlayPause} className="player-body-tools-pp">
           {isPlaying ? (
@@ -60,8 +62,8 @@ const Audio: React.FC = () => {
             <BsPlayFill className="player-body-tools-pp-icon" />
           )}
         </button>
-        <button className="player-body-tools-prev30">
-          <FaStepBackward className="player-body-tools-prev30-icon" />
+        <button onClick={handleForward} className="player-body-tools-prev30">
+          <FaStepForward className="player-body-tools-next30-icon" />
         </button>
         <button className="player-body-tools-repeat">
           <FiRepeat className="player-body-tools-repeat-icon" />
