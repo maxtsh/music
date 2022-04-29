@@ -18,71 +18,54 @@ const Audio: React.FC = () => {
   } = AudioManager();
 
   return (
-    <div className="player">
-      <div className="player-head">
-        <div className="player-head-main">
-          <FaMusic className="player-head-main-icon" />
-          <h2 className="player-head-main-title">Now Playing</h2>
-        </div>
-      </div>
-      <div className="player-cover">
-        <Image
-          className="player-cover-img"
-          src="/tracks/tr-2.jpg"
-          width="400px"
-          height="400px"
-          alt="player-cover"
+    <div className="player-body">
+      <audio
+        className="player-body-audio"
+        src="/musics/track-01.mp3"
+        controls
+        preload="metadata"
+        ref={audioPlayerRef}
+      >
+        Your browser does not support audio
+      </audio>
+      <div className="player-body-timeline">
+        <Input
+          defaultValue={0}
+          className="player-body-timeline-slider"
+          type="range"
+          name=""
+          id=""
+          onChange={handleChangeSlider}
+          ref={progressRef}
+          w={`${
+            (Number(progressRef?.current?.value) /
+              Number(audioPlayerRef?.current?.duration)) *
+            100
+          }%`}
         />
+        <div className="player-body-timeline-current">{time}</div>
+        <div className="player-body-timeline-duration">{duration}</div>
       </div>
-      <div className="player-body">
-        <audio
-          className="player-body-audio"
-          src="/musics/track-01.mp3"
-          controls
-          preload="metadata"
-          ref={audioPlayerRef}
-        >
-          Your browser does not support audio
-        </audio>
-        <div className="player-body-timeline">
-          <Input
-            defaultValue={0}
-            className="player-body-timeline-slider"
-            type="range"
-            name=""
-            id=""
-            onChange={handleChangeSlider}
-            ref={progressRef}
-            w={`${
-              (Number(progressRef?.current?.value) /
-                Number(audioPlayerRef?.current?.duration)) *
-              100
-            }%`}
-          />
-          <div className="player-body-timeline-current">{time}</div>
-          <div className="player-body-timeline-duration">{duration}</div>
-        </div>
-        <div className="player-body-tools">
-          <button className="player-body-tools-shuffle">
-            <BsShuffle className="player-body-tools-shuffle-icon" />
-          </button>
-          <button className="player-body-tools-next30">
-            <FaStepForward className="player-body-tools-next30-icon" />
-          </button>
-          <button onClick={handlePlayPause} className="player-body-tools-pp">
-            {isPlaying ? (
-              <BsPauseFill className="player-body-tools-pp-icon" />
-            ) : (
-              <BsPlayFill className="player-body-tools-pp-icon" />
-            )}
-          </button>
-          <button className="player-body-tools-prev30">
-            <FaStepBackward className="player-body-tools-prev30-icon" />
-          </button>
-          <button className="player-body-tools-repeat">
-            <FiRepeat className="player-body-tools-repeat-icon" />
-          </button>
-        </div>
+      <div className="player-body-tools">
+        <button className="player-body-tools-shuffle">
+          <BsShuffle className="player-body-tools-shuffle-icon" />
+        </button>
+        <button className="player-body-tools-next30">
+          <FaStepForward className="player-body-tools-next30-icon" />
+        </button>
+        <button onClick={handlePlayPause} className="player-body-tools-pp">
+          {isPlaying ? (
+            <BsPauseFill className="player-body-tools-pp-icon" />
+          ) : (
+            <BsPlayFill className="player-body-tools-pp-icon" />
+          )}
+        </button>
+        <button className="player-body-tools-prev30">
+          <FaStepBackward className="player-body-tools-prev30-icon" />
+        </button>
+        <button className="player-body-tools-repeat">
+          <FiRepeat className="player-body-tools-repeat-icon" />
+        </button>
       </div>
     </div>
   );
