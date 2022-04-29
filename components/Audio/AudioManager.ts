@@ -45,6 +45,20 @@ const PlayerManager = () => {
     animationRef.current = requestAnimationFrame(whilePlaying);
   };
 
+  const handleForward = () => {
+    const currTime = audioPlayerRef.current.currentTime;
+    audioPlayerRef.current.currentTime = currTime + 30;
+    progressRef.current.value = currTime + 30;
+    setTime(calculateTime(Math.floor(Number(currTime + 30))));
+  };
+
+  const handleBackward = () => {
+    const currTime = audioPlayerRef.current.currentTime;
+    audioPlayerRef.current.currentTime = currTime - 30;
+    progressRef.current.value = currTime - 30;
+    setTime(calculateTime(Math.floor(Number(currTime - 30))));
+  };
+
   return {
     time,
     duration,
@@ -53,6 +67,8 @@ const PlayerManager = () => {
     isPlaying,
     handleChangeSlider,
     handlePlayPause,
+    handleForward,
+    handleBackward,
   };
 };
 
