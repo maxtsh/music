@@ -73,8 +73,8 @@ export const Container = styled.div`
           height: 100%;
           border-top-right-radius: 20px;
           border-bottom-right-radius: 20px;
-          background: linear-gradient(270deg, #3b92ff, #9540ff);
-          background-size: 400% 400%;
+          background: var(--bg-gradient-1);
+          background-size: var(--bg-size-1);
         }
       }
 
