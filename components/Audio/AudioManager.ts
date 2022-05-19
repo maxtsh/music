@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { calculateTime } from "../../utils/functions";
 
-const PlayerManager = () => {
+const AudioManager = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [duration, setDuration] = useState<string>("00:00");
   const [time, setTime] = useState<string>("00:00");
@@ -72,4 +72,4 @@ const PlayerManager = () => {
   };
 };
 
-export default PlayerManager;
+export default AudioManager;
