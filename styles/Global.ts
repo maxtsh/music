@@ -11,11 +11,16 @@ const GlobalStyles = createGlobalStyle`
   --text-1: #7F8B9C;
   --purple: #6969FF;
   --purple-2: #9540ff;
+  --purple-3: #3D095C;
   --blue-1:#3b92ff;
   --text-light-1: rgb(173,181,194);
   --pink: #F36CC6;
   --bg-gradient-1: linear-gradient(270deg, var(--blue-1), var(--purple-2));
   --bg-size-1: 400% 400%;
+  --sp-1: 0.5rem;
+  --sp-2: 1rem;
+  --sp-3: 1.5rem;
+  --sp-4: 2rem;
 }
 
 *{
