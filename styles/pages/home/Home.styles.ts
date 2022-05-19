@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Responsive } from "../../Mixins";
 
 export const Container = styled.div`
   width: 100%;
@@ -12,9 +13,9 @@ export const Container = styled.div`
     flex: 1;
 
     &-left {
-      flex: 1;
       margin: 1rem;
-      flex: 50%;
+      padding: 2rem;
+      flex: 60%;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
@@ -25,7 +26,7 @@ export const Container = styled.div`
 
         &-title {
           margin: 2rem 0rem;
-          font-size: 400%;
+          font-size: 500%;
           font-weight: 900;
           color: #000;
         }
@@ -52,6 +53,11 @@ export const Container = styled.div`
           margin-right: 1rem;
           background-color: #000;
           text-decoration: none;
+
+          &-icon {
+            font-size: 20px;
+            margin-right: 0.5rem;
+          }
         }
 
         &-hire {
@@ -69,12 +75,11 @@ export const Container = styled.div`
     }
 
     &-right {
-      margin: 1rem;
       position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      flex: 50%;
+      flex: 40%;
       background-image: url("/assets/disco-01.jpg");
       background-repeat: no-repeat;
       background-position: center;
@@ -127,4 +132,11 @@ export const Container = styled.div`
       }
     }
   }
+
+  ${Responsive.tablet.standard`
+    .main{
+      flex-direction: column;
+    }
+
+  `}
 `;

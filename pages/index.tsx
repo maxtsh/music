@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { SiYoutubemusic } from "react-icons/si";
 import Header from "../components/Header";
 import { Container } from "../styles/pages/home/Home.styles";
 import Link from "next/link";
@@ -19,9 +20,7 @@ const Home: NextPage = () => {
       <main className="main">
         <div className="main-left">
           <div className="main-left-intro">
-            <h1 className="main-left-intro-title">
-              We will force you to be happy!
-            </h1>
+            <h1 className="main-left-intro-title">Enjoy Live Music!</h1>
             <p className="main-left-intro-description">
               We provide a fully customizable free dashboard for your taste in
               music and help you enjoy your time while you do your work!
@@ -29,7 +28,10 @@ const Home: NextPage = () => {
           </div>
           <div className="main-left-btns">
             <Link passHref href="/dashboard">
-              <a className="main-left-btns-now">JOIN NOW!</a>
+              <a className="main-left-btns-now">
+                <SiYoutubemusic className="main-left-btns-now-icon" />
+                JOIN NOW!
+              </a>
             </Link>
             <Link
               passHref
