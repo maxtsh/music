@@ -10,10 +10,13 @@
   },
   "dependencies": {
     "@tanem/react-nprogress": "^5.0.0",
+    "axios": "^0.27.2",
+    "js-base64": "^3.7.2",
     "next": "^12.1.5",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-icons": "^4.3.1",
+    "react-query": "^3.39.0",
     "styled-components": "^5.3.5",
     "zustand": "^4.0.0-rc.1"
   },
