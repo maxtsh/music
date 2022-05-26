@@ -1,6 +1,5 @@
 import { useNProgress } from "@tanem/react-nprogress";
-import ContainerComponent from "./Container";
-import Bar from "./Bar";
+import { Container, Bar } from "./Progress.styles";
 import type { IProps } from "./Progress.types";
 
 const Progress: React.FC<IProps> = ({ isAnimating }) => {
@@ -9,12 +8,12 @@ const Progress: React.FC<IProps> = ({ isAnimating }) => {
   });
 
   return (
-    <ContainerComponent
-      animationDuration={animationDuration}
-      isFinished={isFinished}
-    >
-      <Bar animationDuration={animationDuration} progress={progress} />
-    </ContainerComponent>
+    <Container isF={isFinished} tr={`opacity ${animationDuration}ms linear`}>
+      <Bar
+        ml={`${(-1 + progress) * 100}%`}
+        tr={`margin-right ${animationDuration}ms linear`}
+      />
+    </Container>
   );
 };
 
