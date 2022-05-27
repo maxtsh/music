@@ -5,7 +5,7 @@ export const Container = styled.header`
   position: relative;
   display: flex;
   align-items: center;
-  height: 100px;
+  height: var(--header-height);
   background-color: #000;
 
   .nav {
@@ -41,6 +41,10 @@ export const Container = styled.header`
           font-size: 100%;
           font-weight: 500;
           color: #fff;
+        }
+
+        :not(:first-child) {
+          margin-left: var(--sp-2);
         }
       }
     }
@@ -94,7 +98,7 @@ export const Container = styled.header`
 
   .mobile {
     display: none;
-    height: 100px;
+    height: var(--header-height);
 
     &-left,
     &-right {
@@ -141,7 +145,7 @@ export const Container = styled.header`
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
-      clip-path: circle(100px at 90% -15%);
+      clip-path: circle(var(--header-height) at 90% -15%);
       transition: all 1s ease-out;
       pointer-events: none;
       background-color: #000;

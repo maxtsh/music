@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
 
 :root{
+  --header-height: 100px;
   --white: #ffffff;
   --gray-1: #F6F8F9;
   --gray-2:  #9BA6B0;
@@ -37,6 +38,27 @@ html,body{
 h1, h2, h3, h4, h5, h6, p, span, ol, ul{
   margin: 0;
 }
+
+.btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100%;
+  font-weight: 400;
+  padding: 0rem 1rem;
+  height: 50px;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #000;
+  text-decoration: none;
+  cursor: pointer;
+
+  &-icon {
+    font-size: 20px;
+    margin-right: 0.5rem;
+  }
+}
+
 `;
 
 export default GlobalStyles;
