@@ -1,4 +1,5 @@
 import { GiCrownedSkull } from "react-icons/gi";
+import { AiOutlineLogout, AiOutlineLogin } from "react-icons/ai";
 import { SiYoutubemusic, SiLinkedin, SiCodepen } from "react-icons/si";
 import { RiHome7Fill } from "react-icons/ri";
 import { FaGithub, FaHamburger } from "react-icons/fa";
@@ -6,18 +7,28 @@ import { Container } from "./Header.styles";
 import Link from "next/link";
 import { useState } from "react";
 import { BsXLg } from "react-icons/bs";
+import { useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
+  const { data: session } = useSession();
+  const { push } = useRouter();
 
   const handleOpen = () => setOpen(!open);
+  const handleLogOut = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    signOut();
+  };
+
+  const handleGoHome = () => push("/");
 
   return (
     <Container>
       <nav className="nav">
         <ul className="nav-left">
           <li className="nav-left-item">
-            <div className="nav-left-item-logo">
+            <div className="nav-left-item-logo" onClick={handleGoHome}>
               <GiCrownedSkull className="nav-left-item-logo-icon" />
               <h2 className="nav-left-item-logo-title">MaxTsh Music</h2>
             </div>
@@ -69,6 +80,27 @@ const Header: React.FC = () => {
               </a>
             </Link>
           </li>
+          {session ? (
+            <li className="nav-right-item">
+              <a
+                className="nav-center-item-link"
+                href="#"
+                onClick={handleLogOut}
+              >
+                <AiOutlineLogout className="nav-center-item-navicon" />
+                <span className="nav-center-item-navtext">Signout</span>
+              </a>
+            </li>
+          ) : (
+            <li className="nav-right-item">
+              <Link passHref href="/auth">
+                <a className="nav-center-item-link">
+                  <AiOutlineLogin className="nav-center-item-navicon" />
+                  <span className="nav-center-item-navtext">Login</span>
+                </a>
+              </Link>
+            </li>
+          )}
         </ul>
       </nav>
       <nav className="mobile">

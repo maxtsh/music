@@ -11,8 +11,8 @@
   "dependencies": {
     "@tanem/react-nprogress": "^5.0.0",
     "axios": "^0.27.2",
-    "js-base64": "^3.7.2",
     "next": "^12.1.5",
+    "next-auth": "^4.3.4",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-icons": "^4.3.1",
