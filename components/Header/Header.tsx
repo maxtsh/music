@@ -157,6 +157,27 @@ const Header: React.FC = () => {
                 </a>
               </Link>
             </li>
+            {session ? (
+              <li className={`mobile-nav-list-item ${open ? "fade" : ""}`}>
+                <a
+                  className="mobile-nav-list-item-link"
+                  href="#"
+                  onClick={handleLogOut}
+                >
+                  <AiOutlineLogout className="mobile-nav-list-item-navicon" />
+                  <span className="mobile-nav-list-item-navtext">Signout</span>
+                </a>
+              </li>
+            ) : (
+              <li className={`mobile-nav-list-item ${open ? "fade" : ""}`}>
+                <Link passHref href="/auth">
+                  <a className="mobile-nav-list-item-link">
+                    <AiOutlineLogin className="mobile-nav-list-item-navicon" />
+                    <span className="mobile-nav-list-item-navtext">Login</span>
+                  </a>
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </nav>
