@@ -39,8 +39,7 @@ const Player: React.FC = () => {
           <Image
             className="player-cover-img"
             src="/tracks/tr-2.jpg"
-            width="400px"
-            height="400px"
+            layout="fill"
             alt="player-cover"
           />
         </div>

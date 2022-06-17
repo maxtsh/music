@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import type { ContainerProps } from "./Slide.types";
 
-export const Container = styled.div`
+export const Container = styled.div<ContainerProps>`
   position: relative;
-  margin: 0rem 0.5rem;
-  height: 250px;
+  width: ${(p) => (p.active ? "100%" : 0)};
+  height: inherit;
 
   .image {
     border-radius: 8px;
@@ -14,7 +15,8 @@ export const Container = styled.div`
     position: absolute;
     padding: 1rem;
     left: 30px;
-    bottom: 10px;
+    top: 30px;
+    min-width: 50%;
     border-radius: 12px;
     background-color: rgba(0, 0, 0, 0.4);
 

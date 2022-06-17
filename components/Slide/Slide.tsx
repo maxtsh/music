@@ -1,14 +1,14 @@
 import Image from "next/image";
 import { Container } from "./Slide.styles";
+import type { IProps } from "./Slide.types";
 
-const Slide: React.FC = () => {
+const Slide: React.FC<IProps> = ({ active, data }) => {
   return (
-    <Container>
+    <Container active={active} className={active ? "slide active" : "slide"}>
       <Image
         className="image"
-        width="600px"
-        height="250px"
-        src="/slide-1.jpg"
+        layout="fill"
+        src={data?.src || "/no_image.png"}
         alt="slide-1"
       />
       <div className="intro">
@@ -17,13 +17,10 @@ const Slide: React.FC = () => {
           <h4 className="intro-head-title">EXCLUSIVE</h4>
         </div>
         <div className="intro-body">
-          <h3 className="intro-body-title">LIVE MUSIC 2022</h3>
+          <h3 className="intro-body-title">{data.name}</h3>
         </div>
         <div className="intro-foot">
-          <p className="intro-foot-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ea,
-            alias delectus, error harum eveniet.
-          </p>
+          <p className="intro-foot-text">Release: {data.desc}</p>
         </div>
       </div>
     </Container>

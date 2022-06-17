@@ -1,5 +1,59 @@
 import { createGlobalStyle } from "styled-components";
 
+import { css } from "styled-components";
+
+export const ScrollableTrack = css`
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar:horizontal {
+    height: 5px !important;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    display: none;
+    background: #fdfdfd;
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+    transition: display 1s ease-in-out;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    display: none;
+    background: #b1b1b1;
+    transition: display 1s ease-in-out;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b1b1b1;
+  }
+
+  :hover {
+    /* Track */
+    ::-webkit-scrollbar-track {
+      display: block;
+      background: #fdfdfd;
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      display: block;
+      background: #b1b1b1;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #b1b1b1;
+    }
+  }
+`;
+
 const GlobalStyles = createGlobalStyle`
 
 :root{

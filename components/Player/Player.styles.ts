@@ -93,6 +93,9 @@ export const Container = styled.div`
     }
 
     &-cover {
+      position: relative;
+      width: 100%;
+      height: 400px;
       margin-top: 2rem;
 
       &-img {

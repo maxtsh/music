@@ -7,7 +7,7 @@ import type { IProps } from "types/Auth.types";
 
 const Auth: NextPage<IProps> = ({ providers }) => {
   const handleLogin = (proverId: string) => () => {
-    signIn(proverId, { callbackUrl: "/" }); // a callback to return after login successfull
+    signIn(proverId, { callbackUrl: "/dashboard" }); // a callback to return after login successfull
   };
 
   return (
