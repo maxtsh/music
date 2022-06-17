@@ -1,20 +1,19 @@
-// import { dehydrate, QueryClient } from "react-query";
-// import useReactQuery from "service/hooks/useReactQuery";
-import { GetServerSideProps, GetServerSidePropsResult } from "next";
-import { useSession } from "next-auth/react";
+import { dehydrate, QueryClient } from "react-query";
+import {
+  GetServerSideProps,
+  GetServerSidePropsContext,
+  GetServerSidePropsResult,
+} from "next";
+import { getSession } from "next-auth/react";
 import { Container } from "styles/pages/music/Music.styles";
 import Main from "components/Main";
 import Player from "components/Player";
 import Sidebar from "components/Sidebar";
-
-// import Api from "service";
+import Api from "service";
+import type ReleaseType from "types/ReleaseTypes";
+import { BASE_URL } from "Global/URLs";
 
 const Dashboard: React.FC = () => {
-  const { data: session, status } = useSession();
-  // const { data, isLoading, isError } = useReactQuery({});
-
-  console.log("SESSION ===>", session, status);
-
   return (
     <Container>
       <aside className="sidebar">
@@ -30,19 +29,23 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (): Promise<
-  GetServerSidePropsResult<any>
-> => {
-  // const qc = new QueryClient();
-  // const res = await qc.prefetchQuery("albums", () => Api({}));
-
-  // console.log(res);
-
-  // Force to login if user is not authorized
-
+export const getServerSideProps: GetServerSideProps = async (
+  ctx: GetServerSidePropsContext
+): Promise<GetServerSidePropsResult<any>> => {
+  const session = await getSession({ req: ctx.req });
+  const qc = new QueryClient();
+  await qc.prefetchQuery<ReleaseType>("releases", () =>
+    Api({
+      url: `${BASE_URL}/browse/new-releases?limit=6&country=SE`,
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${session?.user.accessToken}`,
+      },
+    })
+  );
   return {
     props: {
-      data: null,
+      dehydratedState: dehydrate(qc),
     },
   };
 };

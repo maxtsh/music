@@ -1,12 +1,29 @@
 import Image from "next/image";
+import { useSession } from "next-auth/react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { Container } from "./Main.styles";
 import Switch from "../Switch";
 import Slider from "../Slider";
 import { FaCrown, FaPlay, FaHeart, FaRegHeart } from "react-icons/fa";
 import { BsStars, BsArrowRight, BsThreeDotsVertical } from "react-icons/bs";
+import useReactQuery from "service/hooks/useReactQuery";
+import type ReleaseType from "types/ReleaseTypes";
+import { BASE_URL } from "Global/URLs";
 
 const Main: React.FC = () => {
+  const { data: session } = useSession();
+  const { data } = useReactQuery<ReleaseType>({
+    key: "releases",
+    method: "GET",
+    url: `${BASE_URL}/browse/new-releases?limit=6&country=SE`,
+    headers: {
+      Authorization: `Bearer ${session?.user.accessToken}`,
+    },
+    enabled: !!session?.user?.accessToken,
+  });
+
+  console.log(data);
+
   return (
     <Container>
       <div className="topbar">
@@ -31,61 +48,19 @@ const Main: React.FC = () => {
         </div>
       </div>
       <div className="trends">
-        <div className="trends-trend">
-          <Image
-            className="trends-trend-image"
-            src="/covers/cover-1.jpg"
-            height="150px"
-            width="150px"
-            alt="trend-1"
-          />
-          <h5 className="trends-trend-title">Megamix Music</h5>
-          <p className="trends-trend-cat">EDM</p>
-        </div>
-        <div className="trends-trend">
-          <Image
-            className="trends-trend-image"
-            src="/covers/cover-2.jpg"
-            height="150px"
-            width="150px"
-            alt="trend-1"
-          />
-          <h5 className="trends-trend-title">100 Best every song</h5>
-          <p className="trends-trend-cat">Pop</p>
-        </div>
-        <div className="trends-trend">
-          <Image
-            className="trends-trend-image"
-            src="/covers/cover-3.jpg"
-            height="150px"
-            width="150px"
-            alt="trend-1"
-          />
-          <h5 className="trends-trend-title">Cowboy Horse</h5>
-          <p className="trends-trend-cat">Country</p>
-        </div>
-        <div className="trends-trend">
-          <Image
-            className="trends-trend-image"
-            src="/covers/cover-4.jpg"
-            height="150px"
-            width="150px"
-            alt="trend-1"
-          />
-          <h5 className="trends-trend-title">Lets Rock Music</h5>
-          <p className="trends-trend-cat">Rock</p>
-        </div>
-        <div className="trends-trend">
-          <Image
-            className="trends-trend-image"
-            src="/covers/cover-5.jpg"
-            height="150px"
-            width="150px"
-            alt="trend-1"
-          />
-          <h5 className="trends-trend-title">Old Is A Gold</h5>
-          <p className="trends-trend-cat">Jazz</p>
-        </div>
+        {data?.data.albums.items.map((item) => (
+          <div key={item.id} className="trends-trend">
+            <Image
+              className="trends-trend-image"
+              src={item?.images?.[0]?.url || "/no_image.png"}
+              height="150px"
+              width="150px"
+              alt="trend-1"
+            />
+            <h5 className="trends-trend-title">{item?.name || ""}</h5>
+            <p className="trends-trend-cat">{item?.type || ""}</p>
+          </div>
+        ))}
       </div>
       <div className="trendlist">
         <div className="trendlist-heading">
@@ -94,7 +69,7 @@ const Main: React.FC = () => {
         </div>
         <div className="trendlist-wrapper">
           <table className="trendlist-wrapper-table">
-            {/* <thead className="trendlist-wrapper-table-head">
+            <thead className="trendlist-wrapper-table-head">
               <tr className="trendlist-wrapper-table-head-row">
                 <th className="trendlist-wrapper-table-head-row-th">Rank</th>
                 <th className="trendlist-wrapper-table-head-row-th">Cover</th>
@@ -107,7 +82,7 @@ const Main: React.FC = () => {
                 </th>
                 <th className="trendlist-wrapper-table-head-row-th"></th>
               </tr>
-            </thead> */}
+            </thead>
             <tbody className="trendlist-wrapper-table-body">
               <tr className="trendlist-wrapper-table-body-row">
                 <td className="trendlist-wrapper-table-body-row-td">#1</td>

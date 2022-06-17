@@ -10,20 +10,13 @@ const Api = async ({
   headers,
   timeout,
 }: Properties): Promise<any> => {
-  const AuthorizationToken =
-    process.env.ACCESS_TOKEN || process.env.NEXT_PUBLIC_ACCESS_TOKEN;
-
   try {
     const res = await AxiosInstance.request({
       url,
       method,
       data,
       timeout,
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-        Authorization: `Bearer ${AuthorizationToken}`,
-        ...headers,
-      },
+      headers,
     });
     return {
       status: res.status,

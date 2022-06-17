@@ -1,11 +1,6 @@
 import { useQuery, UseQueryResult } from "react-query";
 import Api from "service";
-import type { Properties } from "service/types";
-
-interface UseReactQueryProps extends Properties {
-  key: string;
-  options?: any;
-}
+import type { UseReactQueryProps } from "service/types";
 
 // Custom Hook to Async Call data using Custom API and React Query
 const useReactQuery = <DataType>({
@@ -15,15 +10,19 @@ const useReactQuery = <DataType>({
   data: bodyData,
   headers,
   timeout,
+  enabled,
 }: UseReactQueryProps): UseQueryResult<DataType> => {
-  const useQueryResults = useQuery(key, () =>
-    Api({
-      url,
-      method,
-      data: bodyData,
-      headers,
-      timeout,
-    })
+  const useQueryResults = useQuery(
+    key,
+    () =>
+      Api({
+        url,
+        method,
+        data: bodyData,
+        headers,
+        timeout,
+      }),
+    { enabled }
   );
   return useQueryResults;
 };

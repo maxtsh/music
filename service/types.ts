@@ -6,4 +6,10 @@ export interface Properties {
   url: string;
   timeout?: number;
   headers?: AxiosRequestHeaders;
+  enabled?: boolean;
+}
+
+export interface UseReactQueryProps extends Properties {
+  key: string;
+  options?: any;
 }
