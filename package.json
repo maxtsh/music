@@ -6,28 +6,49 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest",
+    "test:ci": "jest --coverage --silent --ci",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "@tanem/react-nprogress": "^5.0.0",
     "axios": "^0.27.2",
-    "next": "^12.1.5",
-    "next-auth": "^4.3.4",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
+    "next": "^12.2.1",
+    "next-auth": "^4.9.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.3.1",
-    "react-query": "^3.39.0",
+    "react-query": "^3.39.1",
     "styled-components": "^5.3.5",
     "zustand": "^4.0.0-rc.1"
   },
   "devDependencies": {
-    "@types/node": "17.0.24",
-    "@types/react": "18.0.5",
-    "@types/react-dom": "18.0.1",
+    "@types/jest": "^28.1.4",
+    "@types/node": "^18.0.3",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
     "@types/styled-components": "^5.1.25",
-    "eslint": "8.13.0",
-    "eslint-config-next": "12.1.5",
-    "prettier": "^2.6.2",
-    "typescript": "4.6.3"
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "eslint": "^8.19.0",
+    "eslint-config-next": "^12.2.1",
+    "eslint-plugin-jest": "^26.5.3",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-testing-library": "^5.5.1",
+    "husky": "^8.0.1",
+    "jest": "^28.1.2",
+    "jest-environment-jsdom": "^28.1.2",
+    "lint-staged": "^13.0.3",
+    "msw": "^0.43.1",
+    "prettier": "^2.7.1",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.7.4",
+    "whatwg-fetch": "^3.6.2"
+  },
+  "lint-staged": {
+    "*.(tsx|ts)": "eslint --cache --fix",
+    "*": "prettier --write --ignore-unknown"
   }
 }
