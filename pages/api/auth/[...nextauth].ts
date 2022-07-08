@@ -30,7 +30,6 @@ export default NextAuth({
     signIn: "/auth",
   },
   callbacks: {
-    // @ts-ignore: This is not a correct error!
     async jwt({ token, account, user }) {
       // Initial Login
       if (account && user) {

@@ -11,18 +11,16 @@ import type ReleaseType from "types/ReleaseTypes";
 import { BASE_URL } from "Global/URLs";
 
 const Main: React.FC = () => {
-  const { data: session } = useSession();
-  const { data } = useReactQuery<ReleaseType>({
-    key: "releases",
-    method: "GET",
-    url: `${BASE_URL}/browse/new-releases?limit=6&country=SE`,
-    headers: {
-      Authorization: `Bearer ${session?.user.accessToken}`,
-    },
-    enabled: !!session?.user?.accessToken,
-  });
-
-  console.log(data);
+  // const { data: session } = useSession();
+  // const { data } = useReactQuery<ReleaseType>({
+  //   key: "releases",
+  //   method: "GET",
+  //   url: `${BASE_URL}/browse/new-releases?limit=6&country=SE`,
+  //   headers: {
+  //     Authorization: `Bearer ${session?.user.accessToken}`,
+  //   },
+  //   enabled: !!session?.user?.accessToken,
+  // });
 
   return (
     <Container>
@@ -48,7 +46,7 @@ const Main: React.FC = () => {
         </div>
       </div>
       <div className="trends">
-        {data?.data.albums.items.map((item) => (
+        {/* {data?.data.albums.items.map((item) => (
           <div key={item.id} className="trends-trend">
             <Image
               className="trends-trend-image"
@@ -60,7 +58,7 @@ const Main: React.FC = () => {
             <h5 className="trends-trend-title">{item?.name || ""}</h5>
             <p className="trends-trend-cat">{item?.type || ""}</p>
           </div>
-        ))}
+        ))} */}
       </div>
       <div className="trendlist">
         <div className="trendlist-heading">

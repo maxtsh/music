@@ -29,25 +29,25 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (
-  ctx: GetServerSidePropsContext
-): Promise<GetServerSidePropsResult<any>> => {
-  const session = await getSession({ req: ctx.req });
-  const qc = new QueryClient();
-  await qc.prefetchQuery<ReleaseType>("releases", () =>
-    Api({
-      url: `${BASE_URL}/browse/new-releases?limit=6&country=SE`,
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${session?.user.accessToken}`,
-      },
-    })
-  );
-  return {
-    props: {
-      dehydratedState: dehydrate(qc),
-    },
-  };
-};
+// export const getServerSideProps: GetServerSideProps = async (
+//   ctx: GetServerSidePropsContext
+// ): Promise<GetServerSidePropsResult<any>> => {
+//   const session = await getSession({ req: ctx.req });
+//   const qc = new QueryClient();
+//   await qc.prefetchQuery<ReleaseType>("releases", () =>
+//     Api({
+//       url: `${BASE_URL}/browse/new-releases?limit=6&country=SE`,
+//       method: "GET",
+//       headers: {
+//         Authorization: `Bearer ${session?.user.accessToken}`,
+//       },
+//     })
+//   );
+//   return {
+//     props: {
+//       dehydratedState: dehydrate(qc),
+//     },
+//   };
+// };
 
 export default Dashboard;
